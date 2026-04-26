@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { cloneElement, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, UserPlus, Search, IdCard, Calendar, MousePointer2, BarChart3, ChevronRight, X } from 'lucide-react'
 
@@ -97,7 +97,7 @@ const ElectionJourney = () => {
               className="brutal-card cursor-pointer group flex flex-col gap-4 hover:bg-black hover:text-white transition-colors"
             >
               <div className={`w-16 h-16 ${step.color} border-4 border-black flex items-center justify-center text-white shadow-brutal group-hover:shadow-none transition-all`}>
-                {React.cloneElement(step.icon as React.ReactElement, { size: 32 })}
+                {cloneElement(step.icon as any, { size: 32 })}
               </div>
               <h3 className="text-2xl font-black">{step.id}. {step.title}</h3>
               <p className="font-bold opacity-80 group-hover:opacity-100 line-clamp-2">{step.description}</p>
@@ -133,7 +133,7 @@ const ElectionJourney = () => {
 
               <div className="flex items-center gap-4 mb-6">
                 <div className={`w-16 h-16 ${selectedStep.color} border-4 border-black flex items-center justify-center text-white shadow-brutal`}>
-                   {React.cloneElement(selectedStep.icon as React.ReactElement, { size: 32 })}
+                   {cloneElement(selectedStep.icon as any, { size: 32 })}
                 </div>
                 <h2 className="text-4xl font-black">{selectedStep.title}</h2>
               </div>

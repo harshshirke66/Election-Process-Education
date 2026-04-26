@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Users, Globe2, Zap } from 'lucide-react'
 

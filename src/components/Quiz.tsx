@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Trophy, RotateCcw, CheckCircle2, XCircle } from 'lucide-react'
 

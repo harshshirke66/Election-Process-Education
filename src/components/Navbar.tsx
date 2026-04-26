@@ -1,4 +1,3 @@
-import React from 'react'
 import { Vote } from 'lucide-react'
 
 const Navbar = () => {

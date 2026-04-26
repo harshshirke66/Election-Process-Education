@@ -1,6 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-brutalist-black: #000000;
+  --color-brutalist-white: #FFFFFF;
+  --color-brutalist-blue: #0000FF;
+  --color-brutalist-red: #FF0000;
+  --color-brutalist-neon: #39FF14;
+
+  --shadow-brutal: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-lg: 8px 8px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-blue: 4px 4px 0px 0px #0000FF;
+  --shadow-brutal-red: 4px 4px 0px 0px #FF0000;
+
+  --border-width-3: 3px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+}
 
 @layer base {
   body {
@@ -18,11 +33,11 @@
   }
 
   .brutal-btn-primary {
-    @apply brutal-btn bg-brutalist-blue text-white;
+    @apply px-6 py-3 border-4 border-black shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none font-bold uppercase bg-brutalist-blue text-white;
   }
 
   .brutal-btn-secondary {
-    @apply brutal-btn bg-brutalist-red text-white;
+    @apply px-6 py-3 border-4 border-black shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none font-bold uppercase bg-brutalist-red text-white;
   }
 
   .brutal-card {

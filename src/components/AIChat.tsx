@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, Send, X, Bot, User, Sparkles } from 'lucide-react'
+import { MessageSquare, Send, X, Bot, User } from 'lucide-react'
 
 const preDefinedPrompts = [
   "How do I register to vote?",

@@ -1,5 +1,4 @@
-import React from 'react'
-import { Vote, Github, Twitter, Mail } from 'lucide-react'
+import { Vote, Globe, MessageSquare, Mail } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -18,10 +17,10 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-blue hover:text-white transition-all shadow-brutal hover:shadow-none">
-                <Github size={24} />
+                <Globe size={24} />
               </a>
               <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-red hover:text-white transition-all shadow-brutal hover:shadow-none">
-                <Twitter size={24} />
+                <MessageSquare size={24} />
               </a>
               <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-neon hover:text-white transition-all shadow-brutal hover:shadow-none">
                 <Mail size={24} />
