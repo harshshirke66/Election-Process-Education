@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ElectionJourney from './components/ElectionJourney'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <ElectionJourney />
         {/* Other sections will be added here */}
       </main>
     </div>
