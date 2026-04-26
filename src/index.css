@@ -51,6 +51,15 @@
   .brutal-heading-lg {
     @apply text-4xl md:text-6xl leading-tight;
   }
+
+  .brutal-progress {
+    @apply w-32 h-4 bg-gray-200 border-2 border-black relative overflow-hidden;
+  }
+
+  .brutal-progress-bar {
+    @apply h-full bg-brutalist-neon transition-all duration-500;
+    width: var(--progress-width, 0%);
+  }
 }
 
 /* Custom scrollbar for brutalist feel */
@@ -69,4 +78,33 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #eee;
+}
+
+/* Google Translate Overrides to maintain aesthetic */
+#google_translate_element {
+  display: none !important;
+}
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-te-banner-frame {
+  display: none !important;
+}
+#goog-gt-tt {
+  display: none !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
