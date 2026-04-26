@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Trophy, RotateCcw, CheckCircle2, XCircle } from 'lucide-react'
 
@@ -46,6 +46,15 @@ const Quiz = () => {
   const [showResult, setShowResult] = useState(false)
   const [selectedOption, setSelectedOption] = useState<number | null>(null)
   const [isAnswered, setIsAnswered] = useState(false)
+  const progressRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (progressRef.current) {
+      const progress = Math.round(((currentQuestion + 1) / questions.length) * 100)
+      progressRef.current.style.setProperty('--progress-width', `${progress}%`)
+      progressRef.current.setAttribute('aria-valuenow', progress.toString())
+    }
+  }, [currentQuestion])
 
   const handleAnswer = (index: number) => {
     if (isAnswered) return
@@ -91,16 +100,12 @@ const Quiz = () => {
               <div className="flex justify-between items-center border-b-4 border-black pb-4">
                 <span className="font-black uppercase tracking-tighter text-xl">Question {currentQuestion + 1}/{questions.length}</span>
                 <div 
-                  className="w-32 h-4 bg-gray-200 border-2 border-black"
+                  ref={progressRef}
+                  className="brutal-progress"
                   role="progressbar"
-                  aria-valuenow={((currentQuestion + 1) / questions.length) * 100}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
+                  aria-label="Quiz Progress"
                 >
-                  <div 
-                    className="h-full bg-brutalist-neon transition-all duration-500" 
-                    style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-                  />
+                  <div className="brutal-progress-bar" />
                 </div>
               </div>
 
