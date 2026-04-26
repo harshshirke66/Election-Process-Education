@@ -2,7 +2,7 @@ import { Vote, Globe, MessageSquare, Mail } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t-8 border-black py-12">
+    <footer className="bg-white border-t-8 border-black pt-12 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div className="flex flex-col gap-6">
@@ -32,10 +32,9 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               <h4 className="font-black uppercase text-xl">Resources</h4>
               <ul className="flex flex-col gap-2 font-bold underline decoration-2 underline-offset-4">
-                <li><a href="#">NVSP Portal</a></li>
-                <li><a href="#">Voter Helpline</a></li>
-                <li><a href="#">ECI Website</a></li>
-                <li><a href="#">KYC App</a></li>
+                <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:bg-brutalist-blue hover:text-white px-1 transition-colors">NVSP Portal</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.eci.citizen" target="_blank" rel="noopener noreferrer" className="hover:bg-brutalist-red hover:text-white px-1 transition-colors">Voter Helpline</a></li>
+                <li><a href="https://eci.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:bg-brutalist-neon hover:text-black px-1 transition-colors">ECI Website</a></li>
               </ul>
             </div>
             <div className="flex flex-col gap-4">
@@ -44,7 +43,7 @@ const Footer = () => {
                 <li><a href="#journey">Journey</a></li>
                 <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#info">Info</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
