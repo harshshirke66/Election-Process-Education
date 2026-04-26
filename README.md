@@ -1,92 +1,127 @@
 <div align="center">
-  <img src="public/favicon.svg" alt="E-Process Ed Logo" width="120" />
 
-  # E-Process Ed: Election Education Assistant
-  **Empowering citizens through transparent, accessible, and interactive democratic education.**
+<img src="public/favicon.svg" width="72" />
 
-  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![Gemini AI](https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
+<h1>E-Process Ed</h1>
+
+<p><strong>Election Education Assistant — Built for Bharat</strong></p>
+
+<p><em>900 million voters. One platform. Zero confusion.</em></p>
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-%23FF6B35?style=for-the-badge&logoColor=white)](https://github.com/harshshirke66/Election-Process-Education)
+[![MIT License](https://img.shields.io/badge/MIT%20LICENSE-%2300C896?style=for-the-badge)](./LICENSE)
+[![Report Bug](https://img.shields.io/badge/REPORT%20BUG-%23FF3366?style=for-the-badge)](https://github.com/harshshirke66/Election-Process-Education/issues)
+
+<br/>
+
+![React](https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_v4-0F172A?style=flat-square&logo=tailwindcss&logoColor=38BDF8)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini_2.5_Flash-4285F4?style=flat-square&logo=google&logoColor=white)
+
 </div>
 
-<br />
+---
 
-## 🌟 The Vision
+## What is this?
 
-**E-Process Ed** is a production-ready, highly interactive web application designed to demystify the Indian electoral process. Built with a stunning **Neobrutalist UI** aesthetic, it targets first-time voters and curious citizens, transforming complex bureaucratic procedures into engaging, bite-sized digital experiences. 
+India runs the largest democratic election on Earth. Yet millions of first-time voters walk into a polling booth having never read a single line of Election Commission documentation — because it's 200 pages of bureaucratic language buried in government PDFs.
 
-From interactive polling journey timelines to real-time AI assistance, this platform ensures no citizen is left behind.
+**E-Process Ed** tears that wall down. It turns dense ECI guidelines into an interactive, AI-powered, multilingual civic education platform — built with a bold Neobrutalist UI that commands the same attention democracy deserves.
 
 ---
 
-## ⚡ Core Features
+## Features
 
-- 🌐 **True Multilingual Support**: Seamless integration with Google Translate, offering 10+ regional Indian languages via a custom-built, persistent language selection portal.
-- 🤖 **Gemini 2.5 Flash AI Assistant**: A context-aware chatbot trained strictly on Election Commission guidelines to provide instant, accurate answers about VVPATs, EVMs, and registration.
-- 🛣️ **Interactive Election Journey**: A beautifully animated, scroll-triggered timeline explaining the voting process step-by-step using `framer-motion`.
-- 📝 **First-Time Voter Portal**: A dedicated 5-step guide bridging the gap between education and action, linking directly to the official NVSP Form 6 registration.
-- 🎯 **Knowledge Assessment**: A fully interactive quiz system to test voter literacy, featuring dynamic progress bars and instant feedback.
-- 🎨 **Premium Neobrutalism**: High-contrast, accessibility-first design utilizing harsh borders, deep solid shadows, and vibrant neon accents to command user attention.
-
----
-
-## 🛠️ Architecture & Tech Stack
-
-| Category | Technology | Purpose |
-| :--- | :--- | :--- |
-| **Frontend Framework** | React 18 + Vite | Lightning-fast HMR and optimized production builds. |
-| **Language** | TypeScript | Strict type-safety and robust component interfaces. |
-| **Styling** | Tailwind CSS v4 | Utility-first CSS powering the Neobrutalist design tokens. |
-| **Animations** | Framer Motion | Fluid viewport-triggered animations and layout transitions. |
-| **Icons** | Lucide React | Consistent, scalable vector iconography. |
-| **AI Integration** | `@google/generative-ai` | Direct integration with Gemini 2.5 Flash for the Chatbot. |
+| | Feature | Description |
+|---|---|---|
+| `AI` | **Civic Assistant** | Gemini 2.5 Flash, hard-scoped to ECI guidelines. No hallucinations, no off-topic drift. |
+| `UX` | **Election Journey** | Scroll-triggered, `framer-motion` animated timeline of the complete voting process. |
+| `i18n` | **Language Portal** | 10+ Indian languages via a custom-built persistent selector — not a browser plugin. |
+| `CTA` | **Voter Onboarding** | 5-step guide for first-time voters that lands directly on the official NVSP Form 6. |
+| `EDU` | **Knowledge Quiz** | Interactive voter literacy test with dynamic progress and instant feedback. |
+| `UI` | **Neobrutalist Design** | Hard borders, offset shadows, neon accents. High-contrast, WCAG AA compliant. |
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Prerequisites
-Make sure you have Node.js (v18+) and npm installed on your machine. You will also need a free **Google Gemini API Key**.
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/harshshirke66/Election-Process-Education.git
-   cd Election-Process-Education
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment Variables**
-   Rename the `.env.example` file to `.env` and paste in your Gemini API Key:
-   ```env
-   VITE_GEMINI_API_KEY=your_actual_api_key_here
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   *Your app will be running at `http://localhost:5173`*
+```
+React 18 + Vite          →  UI layer with fast HMR and optimized production builds
+TypeScript               →  Strict typing across all components and API interfaces
+Tailwind CSS v4          →  Utility-first styling powering the Neobrutalist design system
+Framer Motion            →  Viewport-triggered animations and scroll-linked transitions
+@google/generative-ai    →  Direct Gemini 2.5 Flash integration for the chatbot
+Lucide React             →  Consistent, tree-shakeable SVG icon set
+```
 
 ---
 
-## 🔒 Privacy First
+## Getting Started
 
-E-Process Ed is built on the principles of **Zero Data Collection**:
-- ❌ No tracking cookies or third-party analytics.
-- ❌ No Personally Identifiable Information (PII) is stored.
-- ✅ Local Storage is used *exclusively* for saving user language preferences.
-- ✅ AI Chat queries are processed securely by Google Gemini without local database logging.
+**Prerequisites:** Node.js ≥ 18 · npm · [Gemini API Key](https://aistudio.google.com/)
+
+**1. Clone & install**
+
+```bash
+git clone https://github.com/harshshirke66/Election-Process-Education.git
+cd Election-Process-Education
+npm install
+```
+
+**2. Configure environment**
+
+```bash
+cp .env.example .env
+```
+
+```env
+VITE_GEMINI_API_KEY=your_api_key_here
+```
+
+**3. Run**
+
+```bash
+npm run dev       # → http://localhost:5173
+npm run build     # production build → /dist
+npm run preview   # preview the production build
+```
 
 ---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ChatBot/        ← Gemini-powered civic assistant
+│   ├── Journey/        ← Animated election timeline
+│   ├── Quiz/           ← Knowledge assessment
+│   └── VoterPortal/    ← First-time voter 5-step guide
+├── hooks/              ← Custom React hooks
+├── lib/                ← API clients & utilities
+└── App.tsx
+```
+
+
+
 
 <div align="center">
-  <b>Made for Democracy. Built for the Future.</b> <br/>
-  <i>Open Source & Proud</i>
+
+<br/>
+
+*Every vote is a line of code in the world's largest program.*
+*Make sure yours compiles.*
+
+<br/>
+
+**Open Source · Built in India · For Every Voter**
+
+<br/>
+
+[Issues](https://github.com/harshshirke66/Election-Process-Education/issues) · [Discussions](https://github.com/harshshirke66/Election-Process-Education/discussions) · [Pull Requests](https://github.com/harshshirke66/Election-Process-Education/pulls)
+
 </div>
