@@ -3,6 +3,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ElectionJourney from './components/ElectionJourney'
 import Quiz from './components/Quiz'
+import Infographics from './components/Infographics'
+import AIChat from './components/AIChat'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -12,8 +15,10 @@ function App() {
         <Hero />
         <ElectionJourney />
         <Quiz />
-        {/* Other sections will be added here */}
+        <Infographics />
       </main>
+      <AIChat />
+      <Footer />
     </div>
   )
 }
