@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-black font-sans overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black uppercase tracking-tighter;
+  }
+}
+
+@layer components {
+  .brutal-btn {
+    @apply px-6 py-3 border-4 border-black bg-white shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none font-bold uppercase;
+  }
+
+  .brutal-btn-primary {
+    @apply brutal-btn bg-brutalist-blue text-white;
+  }
+
+  .brutal-btn-secondary {
+    @apply brutal-btn bg-brutalist-red text-white;
+  }
+
+  .brutal-card {
+    @apply border-4 border-black bg-white p-6 shadow-brutal;
+  }
+
+  .brutal-heading-xl {
+    @apply text-6xl md:text-8xl leading-none;
+  }
+
+  .brutal-heading-lg {
+    @apply text-4xl md:text-6xl leading-tight;
+  }
+}
+
+/* Custom scrollbar for brutalist feel */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 3px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eee;
+}

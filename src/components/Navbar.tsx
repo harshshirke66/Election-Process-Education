@@ -1,0 +1,29 @@
+import React from 'react'
+import { Vote } from 'lucide-react'
+
+const Navbar = () => {
+  return (
+    <nav className="sticky top-0 z-50 bg-white border-b-4 border-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
+          <div className="flex items-center gap-2">
+            <div className="bg-brutalist-blue p-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <Vote className="text-white w-6 h-6" />
+            </div>
+            <span className="font-black text-xl tracking-tighter uppercase">E-Process Ed</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#journey" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Journey</a>
+            <a href="#quiz" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Quiz</a>
+            <a href="#info" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Infographics</a>
+            <button className="brutal-btn-primary py-2 px-4 text-sm">
+              Ask AI
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
