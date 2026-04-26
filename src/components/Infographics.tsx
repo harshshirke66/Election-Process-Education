@@ -67,9 +67,14 @@ const Infographics = () => {
             <h3 className="text-3xl font-black uppercase mb-4 tracking-tight">Ready to check your registration status?</h3>
             <p className="text-xl font-bold opacity-90">Don't wait until the last minute. Ensure your name is on the electoral roll today.</p>
           </div>
-          <button className="brutal-btn-secondary text-2xl whitespace-nowrap px-12">
+          <a 
+            href="https://electoralsearch.eci.gov.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="brutal-btn-secondary text-2xl whitespace-nowrap px-12 inline-block text-center"
+          >
             Check Now
-          </button>
+          </a>
         </div>
       </div>
     </section>
