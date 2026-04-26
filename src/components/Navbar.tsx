@@ -1,4 +1,4 @@
-import { Vote } from 'lucide-react'
+import { Vote, Globe } from 'lucide-react'
 
 const Navbar = () => {
   return (
@@ -15,7 +15,18 @@ const Navbar = () => {
             <a href="#journey" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Journey</a>
             <a href="#quiz" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Quiz</a>
             <a href="#info" className="font-bold uppercase hover:underline decoration-4 underline-offset-4">Infographics</a>
-            <button className="brutal-btn-primary py-2 px-4 text-sm">
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-language-selector'))}
+              className="flex items-center gap-2 font-bold uppercase hover:underline decoration-4 underline-offset-4"
+              aria-label="Change Language"
+            >
+              <Globe size={18} />
+              <span className="hidden lg:inline">Language</span>
+            </button>
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
+              className="brutal-btn-primary py-2 px-4 text-sm"
+            >
               Ask AI
             </button>
           </div>
