@@ -50,11 +50,11 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="flex flex-wrap gap-6 mt-8"
           >
-            <button className="brutal-btn-primary flex items-center gap-2 text-xl group">
+            <a href="#journey" className="brutal-btn-primary flex items-center gap-2 text-xl group">
               Start Journey
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            </button>
-            <button className="brutal-btn flex items-center gap-2 text-xl">
+            </a>
+            <button onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))} className="brutal-btn flex items-center gap-2 text-xl">
               <HelpCircle className="w-6 h-6" />
               Ask AI Assistant
             </button>
