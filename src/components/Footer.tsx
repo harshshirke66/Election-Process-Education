@@ -16,13 +16,13 @@ const Footer = () => {
               Empowering citizens through education. Making the democratic process transparent, accessible, and simple for everyone.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-blue hover:text-white transition-all shadow-brutal hover:shadow-none">
+              <a href="#" aria-label="GitHub" className="p-3 border-4 border-black hover:bg-brutalist-blue hover:text-white transition-all shadow-brutal hover:shadow-none">
                 <Globe size={24} />
               </a>
-              <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-red hover:text-white transition-all shadow-brutal hover:shadow-none">
+              <a href="#" aria-label="Twitter" className="p-3 border-4 border-black hover:bg-brutalist-red hover:text-white transition-all shadow-brutal hover:shadow-none">
                 <MessageSquare size={24} />
               </a>
-              <a href="#" className="p-3 border-4 border-black hover:bg-brutalist-neon hover:text-white transition-all shadow-brutal hover:shadow-none">
+              <a href="#" aria-label="Contact Email" className="p-3 border-4 border-black hover:bg-brutalist-neon hover:text-white transition-all shadow-brutal hover:shadow-none">
                 <Mail size={24} />
               </a>
             </div>

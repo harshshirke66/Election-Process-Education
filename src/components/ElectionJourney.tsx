@@ -1,4 +1,4 @@
-import { cloneElement, useState } from 'react'
+import { cloneElement, useState, ReactElement } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, UserPlus, Search, IdCard, Calendar, MousePointer2, BarChart3, ChevronRight, X } from 'lucide-react'
 
@@ -8,11 +8,11 @@ const steps = [
     title: 'Voter Registration',
     icon: <UserPlus />,
     color: 'bg-brutalist-blue',
-    description: 'The first step is getting yourself on the electoral roll. You can register online via the NVSP portal or offline by submitting Form 6 to your local Electoral Registration Officer.',
+    description: 'The first step is getting yourself on the Electoral Roll. You can register online via the NVSP.in portal or the Voter Helpline App by submitting Form 6.',
     details: [
-      'Must be 18 years old on January 1st of the year.',
-      'Must be a resident of the constituency.',
-      'Required documents: Age proof, Address proof, and Photograph.'
+      'Must be 18 years old on the qualifying date (Jan 1st, April 1st, July 1st, or Oct 1st).',
+      'Must be an ordinary resident of the constituency.',
+      'Documents: Aadhar/Age proof, Address proof, and Photograph.'
     ]
   },
   {
@@ -20,11 +20,11 @@ const steps = [
     title: 'Verification',
     icon: <Search />,
     color: 'bg-brutalist-red',
-    description: 'Once you apply, a Booth Level Officer (BLO) will visit your residence to verify the information provided in your application form.',
+    description: 'A Booth Level Officer (BLO) will visit your residence to verify your details. This ensures the integrity of the electoral roll.',
     details: [
-      'Verification of address and family details.',
-      'Ensuring no duplicate entries exist.',
-      'Final approval by the Electoral Registration Officer.'
+      'Verification of address and citizenship status.',
+      'Ensuring no duplicate entries in different constituencies.',
+      'Field verification report is submitted for final approval by the ERO.'
     ]
   },
   {
@@ -32,11 +32,11 @@ const steps = [
     title: 'Voter ID (EPIC)',
     icon: <IdCard />,
     color: 'bg-brutalist-neon',
-    description: 'After successful verification, you are issued an Electors Photo Identity Card (EPIC). This card is your primary identification for voting.',
+    description: 'Once approved, you receive your Electors Photo Identity Card (EPIC). You can also download a digital version called e-EPIC.',
     details: [
-      'EPIC number is unique for every voter.',
-      'Can be downloaded digitally (e-EPIC).',
-      'Also serves as a valid identity proof across India.'
+      'EPIC is a secure document with a unique 10-digit alphanumeric code.',
+      'e-EPIC is a non-editable PDF that can be stored on your phone.',
+      'Used as primary identity at the polling station.'
     ]
   },
   {
@@ -44,11 +44,11 @@ const steps = [
     title: 'Polling Day',
     icon: <Calendar />,
     color: 'bg-brutalist-blue',
-    description: 'On the day of the election, head to your designated polling booth. You can find your booth details on the Voter Helpline App.',
+    description: 'Head to your Polling Station. Locate your booth using the ECI Voter Search portal or the Voter Helpline App.',
     details: [
-      'Carry your Voter ID or any alternative ID approved by the Election Commission.',
-      'Check your name in the voter list at the booth.',
-      'Polling usually happens from 7 AM to 6 PM.'
+      'Identify yourself to the Polling Officer using EPIC or 12 alternative IDs (Aadhar, PAN, etc.).',
+      'Your name is checked against the marked copy of the Electoral Roll.',
+      'Strict security provided by Central Armed Police Forces (CAPF) in many areas.'
     ]
   },
   {
@@ -56,11 +56,11 @@ const steps = [
     title: 'Voting (EVM & VVPAT)',
     icon: <MousePointer2 />,
     color: 'bg-brutalist-red',
-    description: 'Inside the booth, press the button next to your chosen candidate on the Electronic Voting Machine (EVM).',
+    description: 'Press the blue button next to your candidate on the EVM. You can also choose NOTA (None of the Above) at the end of the list.',
     details: [
-      'VVPAT machine shows a slip for 7 seconds to confirm your choice.',
-      'Your left index finger is marked with indelible ink.',
-      'One person, one vote. Secret ballot is maintained.'
+      'The VVPAT (Voter Verifiable Paper Audit Trail) displays your choice for 7 seconds.',
+      'Your left index finger is marked with silver-nitrate indelible ink.',
+      'The Ballot Unit is kept inside a voting compartment for secrecy.'
     ]
   },
   {
@@ -68,11 +68,11 @@ const steps = [
     title: 'Counting & Results',
     icon: <BarChart3 />,
     color: 'bg-brutalist-neon',
-    description: 'After polling, EVMs are sealed and stored in strong rooms. On counting day, votes are tallied in the presence of candidates/agents.',
+    description: 'EVMs are kept in a triple-layered security Strong Room. Votes are counted round-wise in the presence of Election Observers.',
     details: [
-      'EVMs are opened in specific rounds.',
-      'Postal ballots are counted first.',
-      'The candidate with the most votes is declared the winner.'
+      'Postal ballots for service voters are counted first.',
+      'VVPAT slips are randomly matched with EVM counts for 5 booths per constituency.',
+      'The Returning Officer (RO) declares the final winner and issues the Certificate.'
     ]
   }
 ]
@@ -97,7 +97,7 @@ const ElectionJourney = () => {
               className="brutal-card cursor-pointer group flex flex-col gap-4 hover:bg-black hover:text-white transition-colors"
             >
               <div className={`w-16 h-16 ${step.color} border-4 border-black flex items-center justify-center text-white shadow-brutal group-hover:shadow-none transition-all`}>
-                {cloneElement(step.icon as any, { size: 32 })}
+                {cloneElement(step.icon as ReactElement, { size: 32 })}
               </div>
               <h3 className="text-2xl font-black">{step.id}. {step.title}</h3>
               <p className="font-bold opacity-80 group-hover:opacity-100 line-clamp-2">{step.description}</p>
@@ -126,6 +126,7 @@ const ElectionJourney = () => {
             >
               <button 
                 onClick={() => setSelectedStep(null)}
+                aria-label="Close Step Details"
                 className="absolute top-4 right-4 p-2 border-4 border-black hover:bg-brutalist-red hover:text-white transition-colors"
               >
                 <X size={24} />
@@ -133,7 +134,7 @@ const ElectionJourney = () => {
 
               <div className="flex items-center gap-4 mb-6">
                 <div className={`w-16 h-16 ${selectedStep.color} border-4 border-black flex items-center justify-center text-white shadow-brutal`}>
-                   {cloneElement(selectedStep.icon as any, { size: 32 })}
+                   {cloneElement(selectedStep.icon as ReactElement, { size: 32 })}
                 </div>
                 <h2 className="text-4xl font-black">{selectedStep.title}</h2>
               </div>

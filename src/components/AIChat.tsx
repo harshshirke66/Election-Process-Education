@@ -12,7 +12,7 @@ const preDefinedPrompts = [
 const AIChat = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant', text: string }[]>([
-    { role: 'assistant', text: "Hello! I'm your Election Education Assistant. Ask me anything about the voting process!" }
+    { role: 'assistant', text: "Namaste! I'm your Election Education Assistant. Ask me anything about the Indian voting process, EVMs, or ECI guidelines!" }
   ])
   const [inputValue, setInputValue] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -76,6 +76,7 @@ const AIChat = () => {
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
+                aria-label="Close AI Chat"
                 className="hover:bg-white/20 p-2 border-2 border-transparent hover:border-white transition-all"
               >
                 <X size={24} />
@@ -131,6 +132,7 @@ const AIChat = () => {
                 />
                 <button 
                   onClick={() => handleSend()}
+                  aria-label="Send Message"
                   className="bg-brutalist-red text-white p-3 border-4 border-black shadow-brutal hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
                 >
                   <Send size={24} />

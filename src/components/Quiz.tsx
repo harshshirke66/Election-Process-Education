@@ -31,6 +31,12 @@ const questions = [
     options: ["5 Seconds", "7 Seconds", "10 Seconds", "12 Seconds"],
     answer: 1,
     explanation: "The VVPAT slip is visible through a glass window for 7 seconds before falling into a sealed box."
+  },
+  {
+    question: "Who appoints the Chief Election Commissioner of India?",
+    options: ["Prime Minister", "President of India", "Chief Justice of India", "Parliament"],
+    answer: 1,
+    explanation: "The Chief Election Commissioner and other Election Commissioners are appointed by the President of India."
   }
 ]
 
@@ -84,7 +90,13 @@ const Quiz = () => {
             <div className="space-y-8">
               <div className="flex justify-between items-center border-b-4 border-black pb-4">
                 <span className="font-black uppercase tracking-tighter text-xl">Question {currentQuestion + 1}/{questions.length}</span>
-                <div className="w-32 h-4 bg-gray-200 border-2 border-black">
+                <div 
+                  className="w-32 h-4 bg-gray-200 border-2 border-black"
+                  role="progressbar"
+                  aria-valuenow={((currentQuestion + 1) / questions.length) * 100}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
                   <div 
                     className="h-full bg-brutalist-neon transition-all duration-500" 
                     style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}

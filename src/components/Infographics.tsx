@@ -11,8 +11,8 @@ const data = [
   },
   {
     title: "Massive Scale",
-    stat: "900M+ Voters",
-    desc: "The largest democratic exercise on the planet happening right here.",
+    stat: "968M+ Voters",
+    desc: "The largest democratic exercise on the planet happening right here in India.",
     icon: <Users className="w-12 h-12" />,
     color: "bg-brutalist-red"
   },
