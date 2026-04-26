@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, Send, X, Bot, User } from 'lucide-react'
+import { MessageSquare, Send, X, Bot, User, Loader2 } from 'lucide-react'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const preDefinedPrompts = [
   "How do I register to vote?",
@@ -15,13 +16,14 @@ const AIChat = () => {
     { role: 'assistant', text: "Namaste! I'm your Election Education Assistant. Ask me anything about the Indian voting process, EVMs, or ECI guidelines!" }
   ])
   const [inputValue, setInputValue] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
-  }, [messages])
+  }, [messages, isLoading])
 
   useEffect(() => {
     const handleOpenChat = () => setIsOpen(true)
@@ -29,25 +31,44 @@ const AIChat = () => {
     return () => window.removeEventListener('open-ai-chat', handleOpenChat)
   }, [])
 
-  const handleSend = (text?: string) => {
+  const handleSend = async (text?: string) => {
     const messageText = text || inputValue
     if (!messageText.trim()) return
 
     setMessages(prev => [...prev, { role: 'user', text: messageText }])
     setInputValue('')
+    setIsLoading(true)
 
-    // Mock AI Response
-    setTimeout(() => {
-      let response = "That's a great question! In the context of Indian elections, this usually involves coordination between the Election Commission and local authorities. For specific details, you might want to check the NVSP portal."
-      
-      if (messageText.toLowerCase().includes("register")) {
-        response = "To register, you need to fill Form 6. You can do this on the NVSP portal or through the Voter Helpline App. You'll need age proof, address proof, and a photo."
-      } else if (messageText.toLowerCase().includes("vvpat")) {
-        response = "VVPAT stands for Voter Verified Paper Audit Trail. It's an independent system attached to the EVM that allows voters to verify their vote has been cast correctly."
+    try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY
+      if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+        setMessages(prev => [...prev, { role: 'assistant', text: "API Key is missing. Please add VITE_GEMINI_API_KEY to your .env file." }])
+        setIsLoading(false)
+        return
       }
 
-      setMessages(prev => [...prev, { role: 'assistant', text: response }])
-    }, 1000)
+      const genAI = new GoogleGenerativeAI(apiKey)
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-2.5-flash",
+        systemInstruction: "You are a highly helpful, concise, and accurate expert on the Indian Election process. Provide short, perfectly crafted, and direct answers. Avoid long paragraphs.",
+      })
+
+      const history = messages.slice(1).map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.text }],
+      }))
+
+      const chat = model.startChat({ history })
+      const result = await chat.sendMessage(messageText)
+      const responseText = result.response.text()
+
+      setMessages(prev => [...prev, { role: 'assistant', text: responseText }])
+    } catch (error) {
+      console.error(error)
+      setMessages(prev => [...prev, { role: 'assistant', text: "Sorry, I'm having trouble connecting to the AI model right now." }])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -110,6 +131,13 @@ const AIChat = () => {
                   </div>
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="max-w-[85%] p-4 border-4 border-black font-bold bg-white shadow-[4px_4px_0px_0px_rgba(0,0,255,0.2)] flex items-center gap-2">
+                    <Loader2 className="animate-spin" size={16} /> Thinking...
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Footer / Input */}
