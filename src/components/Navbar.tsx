@@ -1,4 +1,4 @@
-import { Vote, Globe } from 'lucide-react'
+import { Globe, Vote } from 'lucide-react'
 
 const Navbar = () => {
   return (
