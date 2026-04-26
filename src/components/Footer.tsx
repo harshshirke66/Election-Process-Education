@@ -1,4 +1,4 @@
-import { Vote, Globe, MessageSquare, Mail } from 'lucide-react'
+import { Globe, MessageSquare, Mail, Vote } from 'lucide-react'
 
 const Footer = () => {
   return (
